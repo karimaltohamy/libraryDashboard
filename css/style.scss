@@ -1,0 +1,110 @@
+@use "../components/header";
+@use "../components/sidebar";
+@use "../components/popups";
+@use "../pages/index";
+@use "../pages/handle-table";
+@use "../pages/login";
+@use "../pages/bookDetails";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: #f1f5f9 !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+svg {
+  width: 25px;
+}
+
+// start main
+main {
+  min-height: 100vh;
+  display: flex;
+
+  .sidebar {
+    width: 20%;
+    transition: all 0.3s;
+
+    &.close_sidebar {
+      width: 70px;
+    }
+  }
+
+  .content_page {
+    width: 80%;
+    transition: all 0.3s;
+    margin-left: 10px;
+
+    &.close_sidebar {
+      width: 95%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    .overflow_sidebar {
+      position: fixed;
+      bottom: 0;
+      left: -100%;
+      height: calc(100% - 45px);
+      z-index: 998;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.758);
+
+      &.active {
+        left: 0;
+      }
+    }
+
+    .sidebar {
+      width: 250px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 45px);
+      z-index: 999;
+
+      &.close_sidebar {
+        position: fixed;
+        left: -100%;
+        width: 0;
+        height: 100%;
+        transition: all 0.3s;
+      }
+    }
+
+    .content_page {
+      width: 100%;
+      margin-left: 0;
+
+      &.close_sidebar {
+        width: 100%;
+      }
+    }
+  }
+}
+// end main

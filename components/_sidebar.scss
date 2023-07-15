@@ -1,0 +1,153 @@
+$main-color: #192335;
+
+// start sidebar
+.sidebar {
+  padding: 30px 15px;
+  background-color: white;
+  color: #192335;
+  border-right: 1px solid rgb(227, 227, 227);
+
+  &.remove_elemnts {
+    .header_sidebar {
+      h1 {
+        display: none;
+      }
+
+      img {
+        width: 48px;
+      }
+    }
+
+    .links {
+      .link_item {
+        &.active,
+        &:hover {
+          background-color: transparent;
+        }
+
+        .text {
+          span {
+            display: none;
+          }
+        }
+
+        i {
+          display: none;
+        }
+      }
+
+      .list {
+        display: none !important;
+      }
+    }
+  }
+
+  .header_sidebar {
+    margin-bottom: 40px;
+
+    img {
+      width: 145px;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all 0.3s;
+
+    .mini_list {
+      transition: all 0.4s ease;
+    }
+
+    .link_item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover,
+      &.active {
+        background-color: #284ac2;
+        border-radius: 6px;
+        padding: 1px 5px;
+        color: white !important;
+
+        .text {
+          .icon {
+            background-color: transparent;
+            color: white;
+          }
+        }
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .icon {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            width: 28px;
+            height: 28px;
+          }
+
+          i {
+            font-size: 20px;
+          }
+        }
+
+        span {
+          font-weight: 600;
+          font-size: 17px;
+        }
+      }
+
+      > i {
+        transition: all 0.3s;
+
+        &.active {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .list {
+      margin-left: 30px;
+      margin-top: 3px;
+      display: none;
+      transition: all 0.3s;
+
+      &.open {
+        display: block;
+      }
+
+      li {
+        transition: all 0.3s;
+
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+
+        &:hover {
+          transform: translateX(5px);
+        }
+
+        i {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+// end sidebar
